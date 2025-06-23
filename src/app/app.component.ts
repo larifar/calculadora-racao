@@ -93,7 +93,14 @@ export class AppComponent {
         longest.beneficio = "dura+"
       }
     }
+  }
 
+  excluirPet(index: number){
+    this.pets.splice(index,1);
+  }
+
+  excluirRacao(index: number){
+    this.racoes.splice(index,1);
   }
 
 }

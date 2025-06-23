@@ -1,23 +1,23 @@
 <div class="conteiner">
   <app-nav-bar></app-nav-bar>
-  <div class="flex w-full justify-between">
-    <div class="max-w-1/3">
+  <div class="flex w-full justify-between lg:justify-around flex-wrap">
+    <div class="lg:basis-1/4 w-full">
       <h1 class="text-2xl text-center">Adicione um pet!</h1>
       <app-pet-component (petCreated)="addPet($event)"></app-pet-component>
       <div class="shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <h1 class="text-2xl">Pets adicionados:</h1>
-        <app-pet-name *ngFor="let pet of pets" [name]="pet.name" [portion]="pet.portion"></app-pet-name>
+        <app-pet-name (excluir)="excluirPet($event)" *ngFor="let pet of pets; let i = index" [name]="pet.name" [portion]="pet.portion" [index]="i"></app-pet-name>
       </div>
     </div>
-    <div class="max-w-1/2">
+    <div class="lg:basis-1/3 w-full">
       <h1 class="text-2xl text-center">Adicione uma ração!</h1>
       <app-form-racao (racaoCreated)="addRacao($event)"></app-form-racao>
       <div class="shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <h1 class="text-2xl">Rações:</h1>
-        <app-racao-component *ngFor="let racao of racoes" [name]="racao.name" [quantity]="racao.quantity" [price]="racao.price" [beneficio]="racao.beneficio" [duracao]="racao.duration" [pricePortion]="racao.portionPrice"></app-racao-component>
+        <app-racao-component (excluir)="excluirRacao($event)" *ngFor="let racao of racoes; let i = index" [name]="racao.name" [quantity]="racao.quantity" [price]="racao.price" [beneficio]="racao.beneficio" [duracao]="racao.duration" [pricePortion]="racao.portionPrice" [index]="i"></app-racao-component>
       </div>
     </div>
-    <div class="max-w-1/3">
+    <div class="lg:basis-1/4 w-full">
       <app-data-compononet [marcasTotal]="calculateTotalMarcas()" [petsTotal]="calculateTotalPets()" [porcaoTotal]="calculatePortionTotal()" [porcaoDiaMedia]="calculatePorcaoMedia()"></app-data-compononet>
     </div>
   </div>

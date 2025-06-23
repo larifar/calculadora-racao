@@ -1,4 +1,7 @@
-<div class="w-full shadow-md rounded px-8 pt-6 pb-8 mb-4">
-  <p class="text-xl break-words whitespace-normal">Nome: {{ name }}</p>
-  <p class="text-xl">Porção: {{ portion }}g</p>
+<div class="w-full justify-between flex shadow-md rounded px-8 pt-6 pb-8 mb-4">
+  <div class="flex flex-col">
+    <p class="text-xl break-words whitespace-normal">Nome: {{ name }}</p>
+    <p class="text-xl">Porção: {{ portion }}g</p>
+  </div>
+  <button (click)="excluir.emit(index)" class="text-red-500 ml-auto">X</button>
 </div>
