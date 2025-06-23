@@ -12,7 +12,7 @@
       <app-form-racao (racaoCreated)="addRacao($event)"></app-form-racao>
       <div class="shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <h1 class="text-2xl">Rações:</h1>
-        <app-racao-component *ngFor="let racao of racoes" [name]="racao.name" [quantity]="racao.quantity" [price]="racao.price" [beneficio]="racao.beneficio"></app-racao-component>
+        <app-racao-component *ngFor="let racao of racoes" [name]="racao.name" [quantity]="racao.quantity" [price]="racao.price" [beneficio]="racao.beneficio" [duracao]="racao.duration" [pricePortion]="racao.portionPrice"></app-racao-component>
       </div>
     </div>
     <div class="max-w-1/3">

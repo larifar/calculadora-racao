@@ -23,11 +23,14 @@ export class AppComponent {
 
   title = 'project-calculadora-racao';
   pets: Pet[] = [];
-  racoes: Racao[] = [{name: "Royal", price: 50, quantity: 5, beneficio: "+econômica", duration:0, portionPrice:0}]
+  racoes: Racao[] = []
   dados = {marcasTotal: 1, petsTotal: 1, porcaoTotal: 100, porcaoDiaMedia: 0.7}
 
   addPet(pet:Pet){
     this.pets.push(pet);
+    this.racoes.forEach(racao => {
+      this.updateRacao(racao);
+    });
   }
 
   addRacao(racao: Racao){
@@ -37,6 +40,14 @@ export class AppComponent {
     racao.portionPrice = portionPrice
     racao.duration = duration
     this.racoes.push(racao);
+  }
+
+  updateRacao(racao : Racao){
+    let portionTotal = this.calculatePortionTotal()
+    let duration = this.calculator.calculateDurationRacao(portionTotal, racao.quantity)
+    let portionPrice = this.calculator.calculatePriceByPortion(portionTotal, racao.price, racao.quantity)
+    racao.portionPrice = portionPrice
+    racao.duration = duration
   }
 
   calculateTotalPets() : number{
