@@ -1,27 +1,41 @@
-# ProjectCalculadoraRacao
+# Calculadora de Ração
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.11.
+## Descrição
 
-## Development server
+Aplicativo web simples e intuitivo para donos de pets calcularem facilmente a duração e o custo da ração com base na porção diária, ajudando no planejamento da alimentação do animal.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Imagens
+![image](https://github.com/user-attachments/assets/8187ea14-ec01-456f-8355-b7473ecf502d)
+![image](https://github.com/user-attachments/assets/6c1265b8-3037-4499-9bcb-ecd8a581f826)
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Tecnologias
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+* Angular
+* Tailwindcss
 
-## Running unit tests
+## Funcionalidades Futuras
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+* Buscar rações online pelo nome
+* Preenchimento automático do peso e preço da ração ao selecionar pelo nome
+* Banco de dados integrado de rações
+* Cálculo da porção ideal considerando o peso do animal
 
-## Running end-to-end tests
+## Como rodar localmente
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. Instale as dependências:
 
-## Further help
+```
+npm install
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+2. Inicie o servidor de desenvolvimento:
+
+```
+ng serve
+```
+
+3. Acesse em: [http://localhost:4200/](http://localhost:4200/)
+
+O app recarrega automaticamente ao salvar alterações nos arquivos fonte.
