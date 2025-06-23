@@ -1,0 +1,22 @@
+<div class="w-full">
+  <form #form="ngForm" (ngSubmit)="submitForm(form)" class=" w-full shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <div class="mb-2">
+      <label class="block text-black" for="petName">Nome do pet:</label>
+      <input [ngModelOptions]="{ updateOn: 'blur' }" [(ngModel)]="name" #nameModel="ngModel" name="name" required [class.border-red-500]="nameModel.invalid && nameModel.touched"
+        class=" text-gray-700 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="petName" type="text" placeholder="Bob">
+    </div>
+
+
+    <div class="w-full">
+      <label class="block text-black" for="petName">Porção diária</label>
+      <div class="flex">
+        <input min="1" #portionModel="ngModel" [(ngModel)]="portion" name="portion" required [class.border-red-500]="portionModel.invalid && portionModel.touched"
+        class="text-gray-700 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="portion" placeholder="80" type="number">
+        <span>g</span>
+      </div>
+    </div>
+    <button [ngClass]="form.invalid ? 'bg-gray-400' : 'bg-purple-700 hover:bg-purple-300'" [disabled]="form.invalid" class="text-white font-bold py-2 px-4 mt-3 rounded focus:outline-none focus:shadow-outline" type="submit">
+      Adicionar
+    </button>
+  </form>
+</div>
