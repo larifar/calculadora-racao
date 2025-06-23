@@ -34,12 +34,9 @@ export class AppComponent {
   }
 
   addRacao(racao: Racao){
-    let portionTotal = this.calculatePortionTotal()
-    let duration = this.calculator.calculateDurationRacao(portionTotal, racao.quantity)
-    let portionPrice = this.calculator.calculatePriceByPortion(portionTotal, racao.price, racao.quantity)
-    racao.portionPrice = portionPrice
-    racao.duration = duration
+    this.updateRacao(racao)
     this.racoes.push(racao);
+    this.updateBeneficio()
   }
 
   updateRacao(racao : Racao){
@@ -72,6 +69,31 @@ export class AppComponent {
       porcoes.push(r.portionPrice)
     })
     return this.racoes.length==0? 0 : this.calculator.calculatePortionMediaByDay(porcoes)
+  }
+
+  getCheaper() : Racao{
+    return this.racoes.reduce((menor, atual) =>
+      atual.portionPrice < menor.portionPrice ? atual : menor
+    )
+  }
+
+  getLongestDuration() : Racao{
+    return this.racoes.reduce((maior, atual) =>
+      atual.duration > maior.duration ? atual : maior
+    )
+  }
+
+  updateBeneficio(){
+    if(this.racoes.length >= 2){
+      this.racoes.forEach(r => r.beneficio = '');
+      const cheaper = this.getCheaper()
+      const longest = this.getLongestDuration()
+      cheaper.beneficio = "+econômica"
+      if(cheaper !== longest){
+        longest.beneficio = "dura+"
+      }
+    }
+
   }
 
 }
