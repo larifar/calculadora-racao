@@ -62,4 +62,16 @@ export class AppComponent {
     return porcaoTotal;
   }
 
+  calculateTotalMarcas():number{
+    return this.racoes.length;
+  }
+
+  calculatePorcaoMedia():number{
+    let porcoes : number[] = []
+    this.racoes.forEach(r =>{
+      porcoes.push(r.portionPrice)
+    })
+    return this.racoes.length==0? 0 : this.calculator.calculatePortionMediaByDay(porcoes)
+  }
+
 }

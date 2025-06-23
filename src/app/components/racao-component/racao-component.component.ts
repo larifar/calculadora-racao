@@ -1,9 +1,10 @@
+import { NgIf } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-racao-component',
   standalone: true,
-  imports: [],
+  imports: [NgIf],
   templateUrl: './racao-component.component.html',
   styleUrl: './racao-component.component.css'
 })
